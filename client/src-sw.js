@@ -28,7 +28,8 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // Asset caching
 registerRoute(
-  ({ request }) => ["style", "script", "worker"].includes(request.destination),
+  // for logo
+  ({ request }) => request.destination === 'image',
   new CacheFirst({
     cacheName: "page-cache",
     plugins: [
