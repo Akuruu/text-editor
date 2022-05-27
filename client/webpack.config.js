@@ -19,7 +19,7 @@ module.exports = () => {
     plugins: [
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -33,6 +33,8 @@ module.exports = () => {
         theme_color: '#7eb4e2',
         start_url: './',
         publicPath: './',
+        fingerprints: false,
+        inject: true,
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
